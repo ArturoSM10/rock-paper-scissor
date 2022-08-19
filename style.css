@@ -1,0 +1,32 @@
+@import url('http://fonts.cdnfonts.com/css/cramps-2');
+
+body {
+    font-family: 'CRAMPS', sans-serif;
+    background-color: #D61C4E;
+}
+
+.header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #FEDB39;
+    border-radius: 50%;
+    color: #1CD6CE;
+    padding: 1rem 1.5rem;
+    width: fit-content;
+    margin: 0 auto;
+}
+
+.header__title {
+    font-size: 1.9rem;
+    font-weight: 400;
+    text-transform: uppercase;
+}
+
+/*
+colors
+yellow #FEDB39
+pink #D61C4E
+light blue #1CD6CE
+dark blue #293462
+*/
