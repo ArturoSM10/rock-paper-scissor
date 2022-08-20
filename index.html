@@ -9,19 +9,61 @@
         <link rel="stylesheet" href="./style.css">
         <link href="http://fonts.cdnfonts.com/css/cramps-2" rel="stylesheet">
         <script src="./script.js" defer></script>
+        <link href="https://fonts.googleapis.com/css2?family=Bungee+Shade&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Wallpoet&display=swap" rel="stylesheet">
     </head>
     <body>
         <header class="header">
             <h1 class="header__title">Rock paper scissors</h1>
         </header>
         <main class="main">
-            <div class="legend"></div>
-            <div class="main__human">
+            <section class="main__legend">
+                <p class="main__legend--pcolor">Choose one option.</p>
+            </section>
+            <section class="main__game">
+                <section class="human secSize">
+                    <p class="human__title title">Human</p>
+                    <img class="humman__choice choice" src="./assets/img/rock-left.png" alt="rock image">
+                    <div class="btn">
+                        <form class="btn__container" action="">
+                            <button class="btn__container--style">Rock</button>
+                            <button class="btn__container--style">Paper</button>
+                            <button class="btn__container--style">Scissors</button>
+                        </form>
+                    </div>
+                </section>
 
-            </div>
-            <div class="main__computer">
+                <section class="info">
+                    <p class="info__p title">VS</p>
+                    <section class="marker">
+                        <div class="marker__container">
+                            <div class="marker__container--style"></div>
+                            <div class="marker__container--style"></div>
+                        </div>
+                        <div class="marker__container">
+                            <div class="marker__container--style"></div>
+                            <div class="marker__container--style"></div>
+                        </div>
+                        <div class="marker__container">
+                            <div class="marker__container--style"></div>
+                            <div class="marker__container--style"></div>
+                        </div>
+                        <div class="marker__container">
+                            <div class="marker__container--style"></div>
+                            <div class="marker__container--style"></div>
+                        </div>
+                        <div class="marker__container">
+                            <div class="marker__container--style"></div>
+                            <div class="marker__container--style"></div>
+                        </div>
+                    </section>
+                </section>
 
-            </div>
+                <section class="computer secSize">
+                    <p class="computer__title title">Computer</p>
+                    <img class="computer__choice choice" src="./assets/img/rock-left.png" alt="rock image">
+                </section>
+            </section>
         </main>
         <footer></footer>
     </body>
