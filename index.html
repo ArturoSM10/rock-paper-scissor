@@ -23,48 +23,48 @@
             <section class="main__game">
                 <section class="human secSize">
                     <p class="human__title title">Human</p>
-                    <img class="humman__choice choice" src="./assets/img/rock-left.png" alt="rock image">
+                    <div class="human__container">
+                        <img class="human__choice choice" src="./assets/img/rock-left.png" alt="rock image">
+                    </div>
                     <div class="btn">
-                        <form class="btn__container" action="">
-                            <button class="btn__container--style">Rock</button>
-                            <button class="btn__container--style">Paper</button>
-                            <button class="btn__container--style">Scissors</button>
+                        <form class="btn__container" action="#" onsubmit="playerSelection();return false">
+                            <button id="rock-btn" class="btn__container--style">Rock</button>
+                            <button id="paper-btn" class="btn__container--style">Paper</button>
+                            <button id="scissors-btn" class="btn__container--style">Scissors</button>
                         </form>
                     </div>
                 </section>
 
                 <section class="info">
                     <p class="info__p title">VS</p>
+                    <p class="info__status">h</p>
                     <section class="marker">
-                        <div class="marker__container">
-                            <div class="marker__container--style"></div>
-                            <div class="marker__container--style"></div>
-                        </div>
-                        <div class="marker__container">
-                            <div class="marker__container--style"></div>
-                            <div class="marker__container--style"></div>
-                        </div>
-                        <div class="marker__container">
-                            <div class="marker__container--style"></div>
-                            <div class="marker__container--style"></div>
-                        </div>
-                        <div class="marker__container">
-                            <div class="marker__container--style"></div>
-                            <div class="marker__container--style"></div>
-                        </div>
-                        <div class="marker__container">
-                            <div class="marker__container--style"></div>
-                            <div class="marker__container--style"></div>
-                        </div>
+                        <p class="marker__title">Score:</p>
+                        <p class="marker__human">0</p>
+                        <p class="marker__computer">0</p>
                     </section>
                 </section>
 
                 <section class="computer secSize">
                     <p class="computer__title title">Computer</p>
-                    <img class="computer__choice choice" src="./assets/img/rock-left.png" alt="rock image">
+                    <div class="computer__container">
+                        <img class="computer__choice choice" src="./assets/img/rock-left.png" alt="rock image">
+                    </div>
                 </section>
             </section>
+            <div class="game-over__container">
+                <p>Game Over</p>
+                <p>You win</p>
+                <p>¿Do you want to play again?</p>
+                <form action="#">
+                    <button class="btn__container--style btn__game-over">Play again</button>
+                </form>
+            </div>
         </main>
-        <footer></footer>
+        <footer class="footer">
+            <p class="footer__p">Page made by &copy; ArturoSM10 </p>
+            <p class="footer__p">Thanks to <a href="">The Odin Project</a></p>
+            <p class="footer__p">Image got from <a href=""></a> and modified in <a href=""></a> go and give them some love.</p>
+        </footer>
     </body>
 </html>
