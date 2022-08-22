@@ -12,7 +12,7 @@
         <link href="https://fonts.googleapis.com/css2?family=Bungee+Shade&display=swap" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css2?family=Wallpoet&display=swap" rel="stylesheet">
     </head>
-    <body>
+    <body onload="playRound()">
         <header class="header">
             <h1 class="header__title">Rock paper scissors</h1>
         </header>
@@ -27,17 +27,17 @@
                         <img class="human__choice choice" src="./assets/img/rock-left.png" alt="rock image">
                     </div>
                     <div class="btn">
-                        <form class="btn__container" action="#" onsubmit="playerSelection();return false">
-                            <button id="rock-btn" class="btn__container--style">Rock</button>
-                            <button id="paper-btn" class="btn__container--style">Paper</button>
-                            <button id="scissors-btn" class="btn__container--style">Scissors</button>
+                        <form class="btn__container" action="#" onsubmit="return false">
+                            <button id="rock-btn" class="btn__container--style" type="button">Rock</button>
+                            <button id="paper-btn" class="btn__container--style" type="button">Paper</button>
+                            <button id="scissors-btn" class="btn__container--style" type="button">Scissors</button>
                         </form>
                     </div>
                 </section>
 
                 <section class="info">
                     <p class="info__p title">VS</p>
-                    <p class="info__status">h</p>
+                    <p class="info__status"></p>
                     <section class="marker">
                         <p class="marker__title">Score:</p>
                         <p class="marker__human">0</p>
@@ -50,6 +50,9 @@
                     <div class="computer__container">
                         <img class="computer__choice choice" src="./assets/img/rock-left.png" alt="rock image">
                     </div>
+                    <form action="#" class="computer__form">
+                        <button class="btn__container--style" id="play-btn" type="button">Play</button>
+                    </form>
                 </section>
             </section>
             <div class="game-over__container">
@@ -57,7 +60,7 @@
                 <p>You win</p>
                 <p>¿Do you want to play again?</p>
                 <form action="#">
-                    <button class="btn__container--style btn__game-over">Play again</button>
+                    <button class="btn__container--style btn__game-over" type="button">Play again</button>
                 </form>
             </div>
         </main>
