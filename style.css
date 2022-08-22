@@ -177,6 +177,13 @@ body {
     transform: scaleX(-1);
 }
 
+.computer__form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 11.8rem;
+} 
+
 .game-over__container {
     position: absolute;
     font-size: 3rem;
