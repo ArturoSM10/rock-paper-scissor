@@ -1,116 +1,95 @@
-
-
-
 const selection = [`rock`, `paper`, `scissors`];
-let humanPoints = 0,
-    computerPoints = 0,
-    check = true;
-
-playRound();
+let marker = [0, 0];
+let index = 0;
+game();
 
 //function playerSelection 
-function playerSelection() {
-    let humanSelection = 0;
-    const humanImg = document.querySelector(".human__choice");
-    const rockBtn = document.querySelector("#rock-btn");
-    const paperBtn = document.querySelector("#paper-btn");
-    const scissorsBtn = document.querySelector("#scissors-btn");
-    rockBtn.addEventListener(`click`, (e) => {
-        humanImg.src = "./assets/img/rock-left.png";
-        humanImg.alt = "Rock image";
-        console.log(`user obtuvo ${selection[0]}`);
-        return selection[0];
+function playerSelection () {
+    const rpsBtns = document.querySelector(`.btn__container`);
+    rpsBtns.addEventListener(`click`, (e) => {
+        const humanImg = document.querySelector(`.human__choice`);
+        if (e.target && e.target.tagName === `BUTTON`) {
+            if (e.target.id === `rock-btn`) {
+                index = 0;
+                humanImg.setAttribute(`src`,`./assets/img/rock-left.png`,`alt`,`rock image`);
+            }
+            else if (e.target.id === `paper-btn`) {
+                index = 1;
+                humanImg.setAttribute(`src`,`./assets/img/paper-left.png`,`alt`,`paper image`);
+            }
+            else {
+                index = 2;
+                humanImg.setAttribute(`src`,`./assets/img/scissors-left.png`,`alt`,`scissors image`);
+            }
+        }
     });
-    paperBtn.addEventListener(`click`, (e) => {
-        humanImg.src = "./assets/img/paper-left.png";
-        humanImg.alt = "Paper image";
-        console.log(`user obtuvo ${selection[1]}`);
-        return selection[1];
-    });
-    scissorsBtn.addEventListener(`click`, (e) => {
-        humanImg.src = "./assets/img/scissors-left.png";
-        humanImg.alt = "Scissors image";
-        console.log(`user obtuvo ${selection[2]}`);
-        return selection[2];
-    });
-    humanImg.alt.toLowerCase();
-    if (humanImg.alt.includes(`rock`)) {
-        return selection[0];
-    }
-    else if (humanImg.alt.includes(`Paper`)) {
-        return selection[1];
-    }
-    else {
-        return selection[2];
-    }
+    return selection[index];
 }
 
 //function computerChoice
 function computerChoice () {
-    let i = (Math.floor(Math.random()*3));
-    const computerImg = document.querySelector(".computer__choice");
-    if (check) {
-        if (selection[i] === `rock`){
-            computerImg.src = "./assets/img/rock-left.png";
-            computerImg.alt = "Rock image";
-        }
-        else if (selection[i] === "paper") {
-            computerImg.src = "./assets/img/paper-left.png";
-            computerImg.alt = "Paper image"
-        }
-        else {
-            computerImg.src = "./assets/img/scissors-left.png";
-            computerImg.alt = "Scissors image";
-        }
-        return selection[i];
+    const platBtn = document.querySelector(`#play-btn`);
+    const computerImg = document.querySelector(`.computer__choice`);
+    const computerSelection = selection[Math.floor(Math.random()*3)];
+    if (computerSelection === `rock`) {
+        computerImg.setAttribute(`src`,`./assets/img/rock-left.png`,`alt`,`rock image`);
+    }
+    else if (computerSelection === `paper`) {
+        computerImg.setAttribute(`src`,`./assets/img/paper-left.png`,`alt`,`paper image`);
     }
     else {
-        return selection[1];
-    };
+        computerImg.setAttribute(`src`,`./assets/img/scissors-left.png`,`alt`,`scissors image`);
+    }
+    return computerSelection;
 }
 
-//function playRound 
-function playRound () {
-    const playBtn = document.querySelector("#play-btn");
+//function checkGame
+function checkGame (player, computer) {
+    const infoStatus = document.querySelector(`.info__status`);
+    const scoreHuman = document.querySelector(`.marker__human`);
+    const scoreComputer = document.querySelector(`.marker__computer`);
+    if (player === computer) {
+        infoStatus.textContent = `Tie`;
+    }
+    else if ((player === `rock` && computer === `scissors`) || (player === `paper` && computer === `rock`) || 
+            (player === `scissors` && computer === `paper`)) {
+        infoStatus.textContent = `You win`;
+        marker[0] += 1;
+        scoreHuman.textContent = marker[0];
+    }
+    else {
+        infoStatus.textContent = `You lose`;
+        marker[1] += 1;
+        scoreComputer.textContent = marker[1];
+    }
+    return marker;
+}
+
+function game() {
+    const playBtn = document.querySelector(`#play-btn`);
+    playerSelection();
     playBtn.addEventListener(`click`, (e) => {
-        e.preventDefault();
-        if (humanPoints < 5 && computerPoints < 5){
-            check = true;
-            result = checkPlay(playerSelection(), computerChoice());
-            return !check;
-        }
-        else {
-            const gameOverScreen = document.querySelector(".game-over__container");
-            const playAgainBtn = document.querySelector(".btn__game-over");
-            gameOverScreen.style = "display: flex;";
-            playAgainBtn.addEventListener(`click`, (e) => {
-                location.reload();
-            });
+        marker = checkGame(selection[index], computerChoice());
+        if (marker[0] === 5 || marker[1] === 5) {
+            gameOverScreen();
         }
     });
-    return check = false;
+    return;
 }
 
-//function checkPlay 
-function checkPlay(player, computer) {
-    const status = document.querySelector(".info__status");
-    const humanPointsMark = document.querySelector(".marker__human");
-    const computerPointsMark = document.querySelector(".marker__computer");
-    if (player === computer) {
-        status.textContent = "Tie";
+//function gameOverScreen
+function gameOverScreen() {
+    const gameOver = document.querySelector(`.game-over__container`);
+    const finalStatus = document.querySelector(`#final-status`);
+    const gameOverBtn = document.querySelector(`.btn__game-over`);
+    gameOver.setAttribute(`style`,`display: flex;`);
+    if (marker[0] > marker[1]) {
+        finalStatus.textContent = `You win`;
     }
-    else if ((player === `rock` && computer === `scissors`) || 
-            (player === `paper` && computer === `rock`) ||
-            (player === `scissors` && computer === `paper`)) {
-                status.textContent = "You win";
-                humanPoints += 1;
-                humanPointsMark.textContent = `${humanPoints}`;
-                return humanPoints;
-            }
     else {
-        status.textContent = "You lose";
-        computerPoints += 1;
-        computerPointsMark.textContent = computerPoints;
-        return computerPoints;
+        finalStatus.textContent = `You lose`;
     }
+    gameOverBtn.addEventListener(`click`,(e) => {
+        location.reload();
+    });
 }
