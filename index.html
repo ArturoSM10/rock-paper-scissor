@@ -12,7 +12,7 @@
         <link href="https://fonts.googleapis.com/css2?family=Bungee+Shade&display=swap" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css2?family=Wallpoet&display=swap" rel="stylesheet">
     </head>
-    <body onload="playRound()">
+    <body>
         <header class="header">
             <h1 class="header__title">Rock paper scissors</h1>
         </header>
@@ -50,16 +50,16 @@
                     <div class="computer__container">
                         <img class="computer__choice choice" src="./assets/img/rock-left.png" alt="rock image">
                     </div>
-                    <form action="#" class="computer__form">
+                    <form action="#" class="computer__form" onsubmit="return false;">
                         <button class="btn__container--style" id="play-btn" type="button">Play</button>
                     </form>
                 </section>
             </section>
             <div class="game-over__container">
                 <p>Game Over</p>
-                <p>You win</p>
+                <p id="final-status"></p>
                 <p>¿Do you want to play again?</p>
-                <form action="#">
+                <form action="#" onsubmit="return false;">
                     <button class="btn__container--style btn__game-over" type="button">Play again</button>
                 </form>
             </div>
