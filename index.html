@@ -11,63 +11,66 @@
         <script src="./script.js" defer></script>
         <link href="https://fonts.googleapis.com/css2?family=Bungee+Shade&display=swap" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css2?family=Wallpoet&display=swap" rel="stylesheet">
+        <link rel="icon" type="image/x-icon" href="./assets/favicon/favicon.png">
     </head>
     <body>
-        <header class="header">
-            <h1 class="header__title">Rock paper scissors</h1>
-        </header>
-        <main class="main">
-            <section class="main__legend">
-                <p class="main__legend--pcolor">Choose one option.</p>
-            </section>
-            <section class="main__game">
-                <section class="human secSize">
-                    <p class="human__title title">Human</p>
-                    <div class="human__container">
-                        <img class="human__choice choice" src="./assets/img/rock-left.png" alt="rock image">
-                    </div>
-                    <div class="btn">
-                        <form class="btn__container" action="#" onsubmit="return false">
-                            <button id="rock-btn" class="btn__container--style" type="button">Rock</button>
-                            <button id="paper-btn" class="btn__container--style" type="button">Paper</button>
-                            <button id="scissors-btn" class="btn__container--style" type="button">Scissors</button>
-                        </form>
-                    </div>
+        <div class="full-container">
+            <header class="header">
+                <h1 class="header__title">Rock paper scissors</h1>
+            </header>
+            <main class="main">
+                <section class="main__legend">
+                    <p class="main_legend main__legend--p">Choose one option.</p>
                 </section>
 
-                <section class="info">
-                    <p class="info__p title">VS</p>
-                    <p class="info__status"></p>
-                    <section class="marker">
+                <section class="main__title">
+                    <p class="main__title--p main__title--center">Human</p>
+                    <p class="main__title--c">VS</p>
+                    <p class="main__title--p main__title--center">Computer</p>
+                </section>
+
+                <section class="main__images">
+                    <div class="img__container">
+                        <img class="main__images main__images--human" src="./assets/img/rock-left.png" alt="rock image">
+                        <img class="main__images main__images--computer" src="./assets/img/rock-left.png" alt="rock image">
+                    </div>
+                    <p class="main__images--status"></p>
+                </section>
+
+                <section class="main__btn-status">
+                    <form class="main__btn-status btn-container" action="#" onsubmit="return false">
+                        <button id="rock-btn" class="btn__container--style" type="button">Rock</button>
+                        <button id="paper-btn" class="btn__container--style" type="button">Paper</button>
+                        <button id="scissors-btn" class="btn__container--style" type="button">Scissors</button>
+                    </form>
+
+                    <section class="main__btn-status marker">
                         <p class="marker__title">Score:</p>
-                        <p class="marker__human">0</p>
-                        <p class="marker__computer">0</p>
+                        <div class="marker__score-points">
+                            <p class="marker__human">0</p>
+                            <p class="marker__computer">0</p>
+                        </div>
                     </section>
-                </section>
 
-                <section class="computer secSize">
-                    <p class="computer__title title">Computer</p>
-                    <div class="computer__container">
-                        <img class="computer__choice choice" src="./assets/img/rock-left.png" alt="rock image">
-                    </div>
-                    <form action="#" class="computer__form" onsubmit="return false;">
-                        <button class="btn__container--style" id="play-btn" type="button">Play</button>
+                    <form action="#" class="main__btn-play btn-container" onsubmit="return false;">
+                        <button class="btn__container--style btn__container--play" id="play-btn" type="button">Play</button>
                     </form>
                 </section>
-            </section>
-            <div class="game-over__container">
-                <p>Game Over</p>
-                <p id="final-status"></p>
-                <p>¿Do you want to play again?</p>
-                <form action="#" onsubmit="return false;">
-                    <button class="btn__container--style btn__game-over" type="button">Play again</button>
-                </form>
-            </div>
-        </main>
-        <footer class="footer">
-            <p class="footer__p">Page made by &copy; ArturoSM10 </p>
-            <p class="footer__p">Thanks to <a href="">The Odin Project</a></p>
-            <p class="footer__p">Image got from <a href=""></a> and modified in <a href=""></a> go and give them some love.</p>
-        </footer>
+
+                <div class="game-over__container">
+                    <p class="game-over__container-margin">Game Over</p>
+                    <p id="final-status" class="game-over__container-margin"></p>
+                    <p class="game-over__container-margin">¿Do you want to play again?</p>
+                    <form action="#" onsubmit="return false;">
+                        <button class="btn__container--style btn__game-over" type="button">Play again</button>
+                    </form>
+                </div>
+            </main>
+            <footer class="footer">
+                <p class="footer__p">Page made by ArturoSM10 </p>
+                <p class="footer__p">Thanks to <a class="footer__p--violet" href="https://www.theodinproject.com/" target="_blank">The Odin Project</a></p>
+                <p class="footer__p">Image got from <a class="footer__p--pink" href="https://www.cleanpng.com/png-rock%E2%80%93paper%E2%80%93scissors-game-money-4410819/" target="_blank">cleanpng</a>, modified in <a class="footer__p--orange" href="https://www.img2go.com/" target="_blank">img2go.com</a>, favicon got in <a class="footer__p--light" target="_blank" href="https://icons8.com/icon/2YUlBrGmynoS/game">game</a> icon by <a class="footer__p--yellow" target="_blank" href="https://icons8.com">Icons8</a> go and give them some love &hearts;.</p>
+            </footer>
+        </div>
     </body>
 </html>
