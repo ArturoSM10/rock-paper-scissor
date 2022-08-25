@@ -5,9 +5,9 @@ game();
 
 //function playerSelection 
 function playerSelection () {
-    const rpsBtns = document.querySelector(`.btn__container`);
+    const rpsBtns = document.querySelector(`.btn-container`);
     rpsBtns.addEventListener(`click`, (e) => {
-        const humanImg = document.querySelector(`.human__choice`);
+        const humanImg = document.querySelector(`.main__images--human`);
         if (e.target && e.target.tagName === `BUTTON`) {
             if (e.target.id === `rock-btn`) {
                 index = 0;
@@ -29,7 +29,7 @@ function playerSelection () {
 //function computerChoice
 function computerChoice () {
     const platBtn = document.querySelector(`#play-btn`);
-    const computerImg = document.querySelector(`.computer__choice`);
+    const computerImg = document.querySelector(`.main__images--computer`);
     const computerSelection = selection[Math.floor(Math.random()*3)];
     if (computerSelection === `rock`) {
         computerImg.setAttribute(`src`,`./assets/img/rock-left.png`,`alt`,`rock image`);
@@ -45,20 +45,20 @@ function computerChoice () {
 
 //function checkGame
 function checkGame (player, computer) {
-    const infoStatus = document.querySelector(`.info__status`);
+    const infoStatus = document.querySelector(`.main__images--status`);
     const scoreHuman = document.querySelector(`.marker__human`);
     const scoreComputer = document.querySelector(`.marker__computer`);
     if (player === computer) {
-        infoStatus.textContent = `Tie`;
+        infoStatus.textContent = `It is a tie`;
     }
     else if ((player === `rock` && computer === `scissors`) || (player === `paper` && computer === `rock`) || 
             (player === `scissors` && computer === `paper`)) {
-        infoStatus.textContent = `You win`;
+        infoStatus.textContent = `You win ${player} beats ${computer}`;
         marker[0] += 1;
         scoreHuman.textContent = marker[0];
     }
     else {
-        infoStatus.textContent = `You lose`;
+        infoStatus.textContent = `You lose ${computer} beats ${player}`;
         marker[1] += 1;
         scoreComputer.textContent = marker[1];
     }
