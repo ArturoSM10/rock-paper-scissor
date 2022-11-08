@@ -260,6 +260,14 @@ body {
     text-decoration: none;
 }
 
+.game-over__container > p {
+    margin: 1.5rem auto;
+}
+
+.game-over__container > p:nth-child(2) {
+    margin: 1.9rem auto;
+}
+
 @media (max-width: 500px) {
     .main__btn-status {
         flex-direction: column;
